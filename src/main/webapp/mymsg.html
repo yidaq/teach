@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en"/>
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
+    <!-- Generated: 2019-04-04 16:57:42 +0200 -->
+    <title>兼职信息平台</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <script src="./assets/js/require.min.js"></script>
+    <!-- Dashboard Core -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet"/>
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- c3.js Charts Plugin -->
+    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet"/>
+    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <!-- Google Maps Plugin -->
+    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet"/>
+    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <!-- Input Mask Plugin -->
+    <script src="./assets/plugins/input-mask/plugin.js"></script>
+    <!-- Datatables Plugin -->
+    <script src="./assets/plugins/datatables/plugin.js"></script>
+
+    <script src="./assets/js/jquery-3.4.0.min.js"></script>
+
+
+</head>
+
+
+<body class="">
+<div class="page">
+    <div class="flex-fill">
+        <div class="header py-4">
+            <div class="container">
+                <div class="d-flex">
+                    <a class="header-brand" href="./index.html">
+                        <h4 class="mt-2">兼职信息平台</h4>
+                    </a>
+                    <div class="d-flex order-lg-2 ml-auto">
+
+                        <div class="dropdown d-none d-md-flex">
+                            <a class="nav-link icon" data-toggle="dropdown">
+                                <i class="fe fe-bell"></i>
+                                <span class="nav-unread"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+
+                                <div class="dropdown-divider"></div>
+                                <a href="myapply.html" class="dropdown-item text-center">全部信息</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                                <span id="icon" class="avatar"></span>
+                                <span class="ml-2 d-none d-lg-block">
+                      <span id="username" class="text-default"></span>
+                      <small id="role" class="text-muted d-block mt-1"></small>
+                    </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                <a id="userinfo_option" class="dropdown-item d-none" href="./userinfo.html">
+                                    <i class="dropdown-icon fe fe-user"></i> 个人中心
+                                </a>
+                                <h6 id="unlogin_info" class="dropdown-item d-none">
+                                    <i class="dropdown-icon fe fe-info"></i> 用户未登陆
+                                </h6>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a id="login_option" class="dropdown-item d-none" href="login.html">
+                                    <i class="dropdown-icon fe fe-log-in"></i> 登陆
+                                </a>
+
+
+                                <a id="change_password" class="dropdown-item d" href="changpwd.html">
+                                    <i class="dropdown-icon fe fe-package"></i> 修改密码
+                                </a>
+
+                                <a id="logout_option" class="dropdown-item d-none">
+                                    <i class="dropdown-icon fe fe-log-out"></i> 注销
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 collapsed" data-toggle="collapse"
+                       data-target="#headerMenuCollapse" aria-expanded="false">
+                        <span class="header-toggler-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 ml-auto">
+
+                    </div>
+                    <div class="col-lg order-lg-first">
+                        <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                            <li class="nav-item">
+                                <a href="./index.html" class="nav-link "><i class="fe fe-home"></i> 主页</a>
+                            </li>
+
+
+                            <li class="nav-item d-none" id="tobeT">
+                                <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i
+                                        class="fe fe-compass"></i> 做家教 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="mymsg.html" class="dropdown-item ">我的求职信息</a>
+                                    <a href="myapply.html" class="dropdown-item ">申请信息</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item d-none" id="tobeS">
+                                <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i
+                                        class="fe fe-compass"></i> 找家教 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="mymsg.html" class="dropdown-item ">我的求教信息</a>
+                                    <a href="myapply.html" class="dropdown-item ">申请信息</a>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i
+                                        class="fe fe-box"></i> 下载中心 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="./books.html" class="dropdown-item ">教材下载</a>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item d-none" id="orderS">
+                                <a href="./myorder.html" class="nav-link"><i class="fe fe-disc"></i> 我的老师</a>
+                            </li>
+
+                            <li class="nav-item d-none" id="orderT">
+                                <a href="./myorder.html" class="nav-link"><i class="fe fe-droplet"></i> 我的学生</a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="./service.html" class="nav-link"><i class="fe fe-command"></i> 客服中心</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content" class="my-3 my-md-5">
+            <!--            todo-->
+            <div class="container">
+
+
+                <div class="row row-cards row-deck">
+
+                    <div class="col-12" id="msgcontent">
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title mr-5">发布新信息</h3>
+
+                                <span id="wfb" class="tag tag-info d-none">
+                                    未发布
+
+                                </span>
+
+                                <span id="yfb" class="tag tag-success d-none">
+                                    已发布
+
+                                </span>
+
+                                <span id="dsh" class="tag tag-warning d-none">
+                                    待审核
+
+                                </span>
+
+                                <span id="bjj" class="tag tag-danger d-none">
+                                    被拒绝
+                                </span>
+
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <form id="teachermsg_form">
+
+                                    <div id="teacher_index" class="row d-none">
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">擅长学科</label>
+                                                <input id="course" name="course" type="text" class="form-control"
+                                                       placeholder="擅长学科">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">授课时间</label>
+                                                <input name="time" type="text"
+                                                       class="form-control"
+                                                       placeholder="补习时间">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">试讲视频</label>
+                                                <div class="custom-file">
+                                                    <input id="video_file" type="file" class="custom-file-input"
+                                                           name="file">
+                                                    <label class="custom-file-label">选择文件</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                </form>
+
+                                <form id="studentmsg_form">
+
+                                    <div id="student_index" class="row d-none">
+
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">需补学科</label>
+                                                <input name="course" id="student_course" type="text"
+                                                       class="form-control" required="required"
+                                                >
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">薪酬（元/小时）</label>
+                                                <input name="pay" id="student_pay" type="text"
+                                                       class="form-control"
+                                                       placeholder="元/小时"
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">上课地点</label>
+                                                <input name="place" id="student_place" type="text"
+                                                       class="form-control"
+                                                       placeholder="上课地点">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">补习时间</label>
+                                                <input name="time" type="text"
+                                                       class="form-control"
+                                                       placeholder="补习时间"
+                                                >
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                                <div class="card-footer text-right">
+                                    <button id="button_fabu" class="btn btn-primary mr-5">发布信息</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card" id="historymsg">
+                            <div class="card-header">
+
+                                <h3 class="card-title mr-5">历史信息</h3>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    欢迎来到兼职信息平台，希望您能够在这里找到想要的！
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-auto ml-lg-auto">
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                    Copyright © 2019
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<script>
+
+    var role = -1;
+    var name = 0;
+    var userid = -1;
+    var msgstatus = -1;
+    var msgid = -1;
+
+    $(document).ready(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/user/get_user_self_info.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+                if (data.status == 0) {
+
+                    userid = data.data.id;
+                    console.log(userid);
+                    role = data.data.role;
+
+
+                    $('#icon').css({"background-image": "url(demo/faces/" + data.data.image + ")"});
+
+                    if (data.data.image == null) {
+                        $('#icon').css({"background-image": "url(demo/faces/defualt.png)"});
+
+                    }
+
+
+                    $('#userinfo_option').removeClass("d-none");
+                    $('#logout_option').removeClass("d-none");
+                    $('#change_password').removeClass("d-none");
+                    $('#username').text(data.data.name);
+
+
+                    if (role == 0) {
+                        $('#student_index').removeClass("d-none");
+                        $('#tobeS').removeClass("d-none");
+                        $('#orderS').removeClass("d-none");
+                        findStudentMsgByCourse("");
+
+
+                    } else if (role == 1) {
+
+                        $('#teacher_index').removeClass("d-none");
+                        $('#tobeT').removeClass("d-none");
+                        $('#orderT').removeClass("d-none");
+                        findTeacherMsgBycourse("");
+
+                    }
+
+                } else {
+                    $('#unlogin_info').removeClass("d-none");
+                    $('#login_option').removeClass("d-none");
+                    $(location).attr('href', './login.html');
+
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+                $('#unlogin_info').removeClass("d-none");
+                $('#login_option').removeClass("d-none");
+            }
+
+        });
+
+    });
+
+
+    function findStudentMsgByCourse() {
+        $.ajax({
+
+            type: "POST",
+            // TODO   接口错误
+            // TODO   修改链接
+            url: "http://localhost:8080/student/msg/get_student_msg_info.do",
+
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+                    $.each(data.data, function (i, obj) {
+                        if(obj.status == 0){
+                            tag = "<span id=\"dsh\" class=\"tag tag-warning\">待审核</span>";
+                        }else if (obj.status == 1){
+                            tag = "<span id=\"dsh\" class=\"tag tag-success\">已发布</span>";
+                        } else {
+                            tag = "<span id=\"dsh\" class=\"tag tag-danger\">被拒绝</span>";
+                        }
+
+
+                        $('#historymsg').append("  <div class=\"card-body\">\n" +
+                            "                                <form id='" + obj.id + "'>\n" +
+                            "\n" +
+                            "                                    <input name='id' hidden value='" + obj.id + "'>" +
+                            "                                    <div class=\"row\">\n" +
+                            "                                        <div class=\"col-sm-12 col-md-12\">\n" +
+                            "                                            <div class=\"form-group\">\n" +
+                            "                                                <label class=\"form-label\"> " + tag + " </label>\n" +
+                            "                                            </div>\n" +
+                            "                                        </div>\n" +
+                            "\n" +
+                            "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                            "                                            <div class=\"form-group\">\n" +
+                            "                                                <label class=\"form-label\">需补学科</label>\n" +
+                            "                                                <input  name=\"course\" type=\"text\" class=\"form-control\"\n" +
+                            "                                                       placeholder=\"需补学科\"\n" +
+                            "                                                       value=\"" + obj.course + "\">\n" +
+                            "                                            </div>\n" +
+                            "                                        </div>\n" +
+                            "\n" +
+                            "\n" +
+                            "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                            "                                            <div class=\"form-group\">\n" +
+                            "                                                <label class=\"form-label\">薪酬（元/小时）</label>\n" +
+                            "                                                <input name=\"pay\" id=\"student_pay\" type=\"text\"\n" +
+                            "                                                       class=\"form-control\"\n" +
+                            "                                                       placeholder=\"元/小时\"\n" +
+                            "                                                       value=' " + obj.pay + "'" +
+                            "                                                >\n" +
+                            "                                            </div>\n" +
+                            "                                        </div>\n" +
+                            "\n" +
+                            "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                            "                                            <div class=\"form-group\">\n" +
+                            "                                                <label class=\"form-label\">上课地点</label>\n" +
+                            "                                                <input name=\"place\" id=\"student_place\" type=\"text\"\n" +
+                            "                                                       class=\"form-control\"\n" +
+                            "                                                       placeholder=\"上课地点\"\n" +
+                            "                                                       value=' " + obj.place + "'" +
+                            "                                                >\n" +
+                            "                                            </div>\n" +
+                            "                                        </div>" +
+                            "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                            "                                            <div class=\"form-group\">\n" +
+                            "                                                <label class=\"form-label\">补习时间</label>\n" +
+                            "                                                <input name=\"time\" type=\"text\"\n" +
+                            "                                                       class=\"form-control\"\n" +
+                            "                                                       placeholder=\"补习时间\"\n" +
+                            "                                                       value='" + obj.time + "'" +
+                            "                                                >\n" +
+                            "                                            </div>\n" +
+                            "                                        </div>" +
+                            "                                    </div>\n" +
+                            "                                </form>\n" +
+                            "                                <button  class=\"btn btn-success mr-5\" onclick='update_msg(" + obj.id + ",0)'>更新信息</button>\n" +
+                            "                                <button  class=\"btn btn-danger\" onclick='delete_msg(" + obj.id + ",0)'>删除信息</button>\n" +
+                            "                              </div>");
+
+                        $('#select' + obj.id).val(obj.education);
+                    })
+
+
+
+                // if (data.data == []) {
+                //
+                //     console.log(data.data);
+                //     $('#button_update').removeClass("d-none");
+                //     $('#button_delete').removeClass("d-none");
+                //     $('#student_course').val(data.data.course);
+                //     $('#student_place').val(data.data.place);
+                //     $('#student_pay').val(data.data.pay);
+                //     $('#student_education').val(data.data.education);
+                //     $('#student_time').val(data.data.time);
+                //     if (data.data.status == 0){
+                //         $('#dsh').removeClass("d-none");
+                //     }else if (data.data.status == 1){
+                //         $('#yfb').removeClass("d-none");
+                //     }
+                //
+                // } else {
+                //     $('#wfb').removeClass("d-none");
+                //     $('#button_fabu').removeClass("d-none");
+                // }
+            },
+            error: function () {
+                console.log("错误");
+            }
+
+        });
+    }
+
+    function findTeacherMsgBycourse(course) {
+        $.ajax({
+
+            type: "POST",
+            // TODO   接口错误
+            // TODO 修改链接
+            url: "http://localhost:8080/teacher/msg/get_teacher_msg_info.do",
+
+            data: {
+                id: userid,
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+
+                $.each(data.data, function (i, obj) {
+
+                    if(obj.status == 0){
+                        tag = "<span id=\"dsh\" class=\"tag tag-warning\">待审核</span>";
+                    }else if (obj.status == 1){
+                        tag = "<span id=\"dsh\" class=\"tag tag-success\">已发布</span>";
+                    } else {
+                        tag = "<span id=\"dsh\" class=\"tag tag-danger\">被拒绝</span>";
+                    }
+
+
+                    $('#historymsg').append("  <div class=\"card-body\">\n" +
+                        "                                <form id='" + obj.id + "'>\n" +
+                        "\n" +
+                        "                                    <input name='id' hidden value='" + obj.id + "'>" +
+                        "                                    <div class=\"row\">\n" +
+                        "                                    <div class=\"row\">\n" +
+                        "                                        <div class=\"col-sm-12 col-md-12\">\n" +
+                        "                                            <div class=\"form-group\">\n" +
+                        "                                                <label class=\"form-label\"> " + tag + " </label>\n" +
+                        "                                            </div>\n" +
+                        "                                        </div>\n" +
+                        "\n" +
+                        "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                        "                                            <div class=\"form-group\">\n" +
+                        "                                                <label class=\"form-label\">擅长学科</label>\n" +
+                        "                                                <input  name=\"course\" type=\"text\" class=\"form-control\"\n" +
+                        "                                                       placeholder=\"擅长学科\"\n" +
+                        "                                                       value=\"" + obj.course + "\">\n" +
+                        "                                            </div>\n" +
+                        "                                        </div>\n" +
+                        "\n" +
+                        "\n" +
+                        "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                        "                                            <div class=\"form-group\">\n" +
+                        "                                                <label class=\"form-label\">授课时间</label>\n" +
+                        "                                                <input name=\"time\" type=\"text\"\n" +
+                        "                                                       class=\"form-control\"\n" +
+                        "                                                       placeholder=\"授课时间\"\n" +
+                        "                                                       value='" + obj.time + "'" +
+                        "                                                >\n" +
+                        "                                            </div>\n" +
+                        "                                        </div>" +
+                        "" +
+                        "                                        <div class=\"col-sm-6 col-md-6\">\n" +
+                        "                                            <div class=\"form-group\">\n" +
+                        "                                                <label class=\"form-label\">试讲视频</label>\n" +
+                        "                                                <div class=\"custom-file\">\n" +
+                        "                                                    <input  type=\"file\" class=\"custom-file-input\"\n" +
+                        "                                                           name=\"file\">\n" +
+                        "                                                    <label class=\"custom-file-label\">选择文件</label>\n" +
+                        "                                                </div>\n" +
+                        "                                            </div>\n" +
+                        "                                        </div>\n" +
+                        "                                        <div class=\"col-md-4\">\n" +
+                        "                                            <div class=\"form-group\">\n" +
+                        "                                                <label class=\"form-label\">现有视频</label>\n" +
+                        "                                                <video id=\"msg_video\" class=\"col-12 fe-video\"\n" +
+                        "                                                       src=\"demo/video/" + obj.videopath + "\"\n" +
+                        "                                                       controls=\"controls\">\n" +
+                        "                                                </video>\n" +
+                        "                                            </div>\n" +
+                        "                                        </div>" +
+                        "                                    </div>\n" +
+                        "                                </form>\n" +
+                        "                                <button  class=\"btn btn-success mr-5\" onclick='update_msg(" + obj.id + ",1)'>更新信息</button>\n" +
+                        "                                <button  class=\"btn btn-danger\" onclick='delete_msg(" + obj.id + ",1)'>删除信息</button>\n" +
+                        "                              </div>");
+
+                    $('#select' + obj.id).val(obj.education);
+                })
+
+
+            },
+            error: function () {
+                console.log("错误");
+            }
+
+        });
+    }
+
+    //注销
+    $('#logout_option').click(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/user/logout.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0) {
+                    alert('注销成功');
+                    $(location).attr('href', './login.html');
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+    });
+
+
+    $('#button_fabu').click(function () {
+        if (role == 1) {
+            if (!$('#video_file').get(0).files[0]) {
+                alert("请选择试讲视频");
+                return 0;
+            }
+
+            var form = new FormData($('#teachermsg_form')[0]);
+            form.append("userid", userid);
+
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/teacher/msg/insert_teacher_msg.do",
+                data: form,
+
+                contentType: false, // 不设置内容类型
+                processData: false, // 不处理数据
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+                    $(location).attr('href', './mymsg.html');
+                },
+                error: function (data) {
+
+
+                }
+            });
+
+
+        } else if (role == 0) {
+            var form = new FormData($('#studentmsg_form')[0]);
+            form.append("userid", userid);
+            form.delete("id");
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/student/msg/insert_student_msg.do",
+                data: form,
+
+                contentType: false, // 不设置内容类型
+                processData: false, // 不处理数据
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+                    $(location).attr('href', './mymsg.html');
+                },
+                error: function (data) {
+
+                }
+            });
+
+
+        }
+    });
+
+
+    function update_msg(id, role) {
+        alert("更新信息后需要重新审核");
+        if (role == 1) {
+            var form = new FormData($('#' + id)[0]);
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/teacher/msg/update_teacher_msg.do",
+                data: form,
+
+
+                contentType: false, // 不设置内容类型
+                processData: false, // 不处理数据
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+
+                },
+                error: function (data) {
+
+
+                }
+            });
+
+        } else if (role == 0) {
+
+
+            var form = new FormData($('#' + id)[0]);
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/student/msg/update_student_msg.do",
+                data: form,
+
+                contentType: false, // 不设置内容类型
+                processData: false,
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+    }
+
+
+    function delete_msg(id, role) {
+        console.log(id + "" + role);
+        if (role == 1) {
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/teacher/msg/delete_teacher_msg.do",
+
+                data: {
+                    id: id
+                },
+
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+                    $(location).attr('href', './mymsg.html');
+                },
+                error: function (data) {
+
+
+                }
+            });
+
+        } else if (role == 0) {
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/student/msg/delete_student_msg.do",
+                data: {
+                    id: id
+                },
+
+
+                xhrFields: {
+                    withCredentials: true
+                },
+
+                crossDomain: true,
+
+                dataType: "json",
+                success: function (data) {
+                    $(location).attr('href', './mymsg.html');
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

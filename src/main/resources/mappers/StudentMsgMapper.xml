@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.dao.StudentMsgMapper">
+  <resultMap id="BaseResultMap" type="com.teach.pojo.StudentMsg">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="userid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="idcard" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="education" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="course" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="place" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pay" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, idcard, education, course, time, place, pay, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teach_studentmsg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teach_studentmsg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.teach.pojo.StudentMsg">
+    insert into teach_studentmsg (id, userid, idcard, 
+      education, course, time, 
+      place, pay, status)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{place,jdbcType=VARCHAR}, #{pay,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.teach.pojo.StudentMsg">
+    insert into teach_studentmsg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="pay != null">
+        pay,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null">
+        #{pay,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.teach.pojo.StudentMsg">
+    update teach_studentmsg
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null">
+        pay = #{pay,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.teach.pojo.StudentMsg">
+    update teach_studentmsg
+    set userid = #{userid,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      course = #{course,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      pay = #{pay,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from teach_studentmsg
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+
+  <select id="getList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_studentmsg
+    order by id asc
+  </select>
+
+  <select id="getListByCourse" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_studentmsg
+    where course like CONCAT('%',#{course},'%')
+    and status = 1
+  </select>
+
+  <select id="getListByStatus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_studentmsg
+    where status = #{status}
+  </select>
+
+  <select id="getListByPlace" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_studentmsg
+    where place like CONCAT('%',#{place},'%')
+    and status = 1
+  </select>
+</mapper>

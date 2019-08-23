@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en"/>
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
+    <!-- Generated: 2019-04-04 16:57:42 +0200 -->
+    <title>兼职信息平台</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <script src="./assets/js/require.min.js"></script>
+    <!-- Dashboard Core -->
+    <link href="./assets/css/dashboard.css" rel="stylesheet"/>
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- c3.js Charts Plugin -->
+    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet"/>
+    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <!-- Google Maps Plugin -->
+    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet"/>
+    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <!-- Input Mask Plugin -->
+    <script src="./assets/plugins/input-mask/plugin.js"></script>
+    <!-- Datatables Plugin -->
+    <script src="./assets/plugins/datatables/plugin.js"></script>
+
+    <script src="./assets/js/jquery-3.4.0.min.js"></script>
+
+
+</head>
+
+
+<body class="">
+<div class="page">
+    <div class="flex-fill">
+        <div class="header py-4">
+            <div class="container">
+                <div class="d-flex">
+                    <a class="header-brand" href="./index.html">
+                        <h4 class="mt-2">兼职信息平台</h4>
+                    </a>
+                    <div class="d-flex order-lg-2 ml-auto">
+
+                        <div class="dropdown d-none d-md-flex">
+                            <a class="nav-link icon" data-toggle="dropdown">
+                                <i class="fe fe-bell"></i>
+                                <span class="nav-unread"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+
+                                <div class="dropdown-divider"></div>
+                                <a href="myapply.html" class="dropdown-item text-center">全部信息</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                                <span id="icon" class="avatar"></span>
+                                <span class="ml-2 d-none d-lg-block">
+                      <span id="username" class="text-default"></span>
+                      <small id="role" class="text-muted d-block mt-1"></small>
+                    </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                <a id="userinfo_option" class="dropdown-item d-none" href="./userinfo.html">
+                                    <i class="dropdown-icon fe fe-user"></i> 个人中心
+                                </a>
+                                <h6 id="unlogin_info" class="dropdown-item d-none">
+                                    <i class="dropdown-icon fe fe-info"></i> 用户未登陆
+                                </h6>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a id="login_option" class="dropdown-item d-none" href="login.html">
+                                    <i class="dropdown-icon fe fe-log-in"></i> 登陆
+                                </a>
+
+
+                                <a id="change_password" class="dropdown-item d" href="changpwd.html">
+                                    <i class="dropdown-icon fe fe-package"></i> 修改密码
+                                </a>
+
+                                <a id="logout_option" class="dropdown-item d-none">
+                                    <i class="dropdown-icon fe fe-log-out"></i> 注销
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 collapsed" data-toggle="collapse"
+                       data-target="#headerMenuCollapse" aria-expanded="false">
+                        <span class="header-toggler-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 ml-auto">
+
+                    </div>
+                    <div class="col-lg order-lg-first">
+                        <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                            <li class="nav-item">
+                                <a href="./index.html" class="nav-link "><i class="fe fe-home"></i> 主页</a>
+                            </li>
+
+
+                            <li class="nav-item d-none" id="tobeT">
+                                <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i
+                                        class="fe fe-compass"></i> 做家教 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="mymsg.html" class="dropdown-item ">我的求职信息</a>
+                                    <a href="myapply.html" class="dropdown-item ">申请信息</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item d-none" id="tobeS">
+                                <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i
+                                        class="fe fe-compass"></i> 找家教 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="mymsg.html" class="dropdown-item ">我的求教信息</a>
+                                    <a href="myapply.html" class="dropdown-item ">申请信息</a>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i
+                                        class="fe fe-box"></i> 下载中心 </a>
+                                <div class="dropdown-menu dropdown-menu-arrow">
+                                    <a href="./books.html" class="dropdown-item ">教材下载</a>
+                                </div>
+                            </li>
+
+
+
+                            <li class="nav-item d-none" id="orderS">
+                                <a href="./myorder.html" class="nav-link"><i class="fe fe-disc"></i> 我的老师</a>
+                            </li>
+
+                            <li class="nav-item d-none" id="orderT">
+                                <a href="./myorder.html" class="nav-link"><i class="fe fe-droplet"></i> 我的学生</a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="./service.html" class="nav-link"><i class="fe fe-command"></i> 客服中心</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content" class="my-3 my-md-5">
+            <!--            todo-->
+            <div class="container">
+
+
+                <div class="row row-cards row-deck">
+
+                    <div class="col-lg-6 col-md-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">发出的申请</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <div class="dataTables_wrapper">
+
+
+                                    <table class="table table-hover table-outline table-vcenter text-nowrap card-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">编号</th>
+                                            <th class="text-center">对方姓名</th>
+                                            <th class="text-center">学科</th>
+                                            <th class="text-center"><i class="more_infomation"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">收到的申请</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <div class="dataTables_wrapper">
+
+
+
+                                    <table class="table table-hover table-outline table-vcenter text-nowrap card-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">编号</th>
+                                            <th class="text-center">对方姓名</th>
+                                            <th class="text-center">学科</th>
+                                            <th class="text-center"><i class="more_infomation"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="recv_tbody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    欢迎来到兼职信息平台，希望您能够在这里找到想要的！
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-auto ml-lg-auto">
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                    Copyright © 2019
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<script>
+
+    var role;
+    var userid;
+
+    $(document).ready(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/user/get_user_self_info.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+                if (data.status == 0) {
+
+
+                    role = data.data.role;
+
+                    userid = data.data.id;
+
+
+                    $('#icon').css({"background-image": "url(demo/faces/" + data.data.image + ")"});
+
+                    if (data.data.image == null) {
+                        $('#icon').css({"background-image": "url(demo/faces/defualt.png)"});
+
+                    }
+
+
+                    $('#userinfo_option').removeClass("d-none");
+                    $('#logout_option').removeClass("d-none");
+                    $('#change_password').removeClass("d-none");
+                    $('#username').text(data.data.name);
+
+                    findSend();
+                    findRecv();
+
+                    if (role == 0) {
+                        $('#student_index').removeClass("d-none");
+                        $('#tobeS').removeClass("d-none");
+                        $('#orderS').removeClass("d-none");
+
+
+                    } else if (role == 1) {
+
+                        $('#teacher_index').removeClass("d-none");
+                        $('#tobeT').removeClass("d-none");
+                        $('#orderT').removeClass("d-none");
+
+                    }
+
+                } else {
+                    $('#unlogin_info').removeClass("d-none");
+                    $('#login_option').removeClass("d-none");
+                    $(location).attr('href', './login.html');
+
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+
+    });
+
+
+
+    function findSend() {
+        $.ajax({
+
+            type: "POST",
+            // TODO   接口错误
+            // TODO 修改链接
+            url: "http://localhost:8080/apply/get_apply_msg_by_userid.do",
+
+            data: {
+                id:userid,
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+                if (data.status == 0) {
+
+                    $.each(data.data, function (i, obj) {
+
+                        $.ajax({
+
+                            type: "POST",
+                            // TODO   接口错误
+                            // TODO 修改链接
+                            url: "http://localhost:8080/user/get_user_info.do",
+
+                            data: {
+                                id:obj.targetid,
+                            },
+
+                            xhrFields: {
+                                withCredentials: true
+                            },
+
+                            crossDomain: true,
+
+                            dataType: "json",
+
+                            success: function (data) {
+
+                                if (data.status == 0) {
+                                    $('#tbody').append(
+                                        "<tr>\n" +
+                                        "        <td class=\"text-center\">" + obj.id +
+                                        "</td>\n" +
+                                        "        <td class=\"text-center\">" + data.data.name +
+                                        "</td>\n" +
+                                        "        <td class=\"text-center\">" + obj.course +
+                                        "</td>\n" +
+                                        "        <td><button id='" + obj.id +
+                                        "' class='btn btn-sm btn-danger' onclick='deleteapply(this)'>删除申请</button></td></tr>"
+                                    )
+                                } else {
+
+                                }
+                            },
+                            error: function () {
+                                console.log("错误");
+                            }
+
+                        });
+
+
+
+
+                    })
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("错误");
+            }
+
+        });
+    }
+
+
+
+
+    // todo 要改的函数！！！！！！！！！
+    function findRecv(course) {
+        $.ajax({
+
+            type: "POST",
+            // TODO   接口错误
+            // TODO 修改链接
+            url: "http://localhost:8080/apply/get_apply_msg_by_targetid.do",
+
+            data: {
+               id:userid,
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+
+
+                if (data.status == 0) {
+                    $.each(data.data, function (i, obj) {
+                        if(obj.role == 1){
+                            acc = "<button class='btn btn-sm btn-warning' disabled>已接受</button>"
+                        }else{
+                            acc = "<button class='btn btn-sm btn-info' onclick='accept( " + obj.userid + "," + obj.id +  " )'>接受申请</button>"
+                        }
+                        $('#recv_tbody').append(
+                            "<tr>" +
+                            "        <td class=\"text-center\">" + obj.id +
+                            "</td>\n" +
+                            "        <td class=\"text-center\">" + obj.name +
+                            "</td>\n" +
+                            "        <td class=\"text-center\">" + obj.course +
+                            "</td>\n" +
+                            "        <td class='text-right'>" +
+                            "<button id='" + obj.userid + "' class='btn btn-sm btn-success mr-2' onclick='gotomsg(this)'>他的信息</button>" +
+                             acc +
+
+
+                            "</td>" +
+                            "</tr>"
+                        )
+                    })
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("错误");
+            }
+
+        });
+    }
+
+
+
+
+
+
+
+    //注销
+    $('#logout_option').click(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/user/logout.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0) {
+                    alert('注销成功');
+                    $(location).attr('href', './login.html');
+
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+    });
+    function gotomsg(data) {
+        console.log(data.id);
+        window.location.href = 'orther.html?userid=' + data.id + "&msgid=" + -1 ;
+    }
+
+
+
+
+
+
+
+    // todo 接受申请的函数！！！！！！！！！
+    function accept(targetid,applyId){
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/apply/accept.do",
+
+            data:{
+                applyId:applyId,
+                targetId:targetid,
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0) {
+
+                    $(location).attr('href', './myapply.html');
+
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+
+    }
+
+
+
+
+
+
+
+
+
+    function deleteapply(button) {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/apply/del_applymsg.do",
+
+            data:{
+                id:button.id,
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0) {
+
+                    $(location).attr('href', './myapply.html');
+
+                } else {
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+    }
+
+
+
+</script>
+
+</body>
+</html>

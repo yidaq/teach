@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.dao.BookMapper">
+  <resultMap id="BaseResultMap" type="com.teach.pojo.Book">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="education" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="course" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filepath" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="imagepath" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="version" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="type" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, education, course, filepath, imagepath, version, type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teach_book
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teach_book
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.teach.pojo.Book">
+    insert into teach_book (id, education, course, 
+      filepath, imagepath, version, 
+      type)
+    values (#{id,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}, 
+      #{filepath,jdbcType=VARCHAR}, #{imagepath,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.teach.pojo.Book">
+    insert into teach_book
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="filepath != null">
+        filepath,
+      </if>
+      <if test="imagepath != null">
+        imagepath,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null">
+        #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.teach.pojo.Book">
+    update teach_book
+    <set>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        filepath = #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null">
+        imagepath = #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.teach.pojo.Book">
+    update teach_book
+    set education = #{education,jdbcType=VARCHAR},
+      course = #{course,jdbcType=VARCHAR},
+      filepath = #{filepath,jdbcType=VARCHAR},
+      imagepath = #{imagepath,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_book
+    order by id asc
+  </select>
+
+  <select id="getListByCourseEducation" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_book
+    where course = #{course}
+    and education = #{education}
+  </select>
+</mapper>

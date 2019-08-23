@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en"/>
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
+    <!-- Generated: 2019-04-04 16:57:42 +0200 -->
+    <title>兼职信息平台后台管理</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <!-- Dashboard Core -->
+    <link href="../assets/css/dashboard.css" rel="stylesheet"/>
+    <!-- c3.js Charts Plugin -->
+    <link href="../assets/plugins/charts-c3/plugin.css" rel="stylesheet"/>
+    <!-- Google Maps Plugin -->
+    <link href="../assets/plugins/maps-google/plugin.css" rel="stylesheet"/>
+    <!-- Input Mask Plugin -->
+    <!-- Datatables Plugin -->
+
+    <script src="../assets/js/jquery-3.4.0.min.js"></script>
+
+
+</head>
+
+
+<body class="">
+<div class="page">
+    <div class="flex-fill">
+        <div class="header py-4">
+            <div class="container">
+                <div class="d-flex">
+                    <a class="header-brand" href="./index.html">
+                        <h4 class="mt-2">兼职信息平台后台管理</h4>
+                    </a>
+                    <div class="d-flex order-lg-2 ml-auto">
+
+                        <div class="dropdown d-none d-md-flex">
+
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mt-2">
+
+                            <span id="username" class="text-default">管理员用户</span>
+
+
+                        </div>
+                    </div>
+                    <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 collapsed" data-toggle="collapse"
+                       data-target="#headerMenuCollapse" aria-expanded="false">
+                        <span class="header-toggler-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 ml-auto">
+
+                    </div>
+                    <div class="col-lg order-lg-first">
+                        <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link"><i class="fe fe-home"></i>用户管理</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="msg.html" class="nav-link"><i class="fe fe-message-square"></i>信息审核</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="complain.html" class="nav-link"><i class="fe fe-server"></i>投诉查看</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="bookup.html" class="nav-link active"><i class="fe fe-book"></i>教材上传</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content" class="my-3 my-md-5">
+            <!--            todo-->
+            <div class="container">
+
+
+                <div class="row row-cards row-deck">
+
+                    <div class="col-12">
+
+
+                        <div class="card" id="teacher_index">
+
+                            <div class="card-header">
+                                <h3 class="card-title">教材上传</h3>
+                            </div>
+                            <form id="bookform" >
+                                <div class="card-body row">
+
+
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">教材名</label>
+                                            <input name="course" id="book_course" type="text"
+                                                   class="form-control"
+                                                   placeholder="教材名">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label  class="form-label">年级</label>
+                                            <select id="book_education"  name="education" class="form-control custom-select">
+                                                <option value="">未设置</option>
+                                                <option value="1">一</option>
+                                                <option value="2">二</option>
+                                                <option value="3">三</option>
+                                                <option value="4">四</option>
+                                                <option value="5">五</option>
+                                                <option value="6">六</option>
+                                                <option value="7">七</option>
+                                                <option value="8">八</option>
+                                                <option value="9">九</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">教材图片</label>
+                                            <div class="custom-file">
+                                                <input name="img" id="bookimg" type="file" class="custom-file-input">
+                                                <label id="bookimgpre" class="custom-file-label">选择文件</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">教材文件</label>
+                                            <div class="custom-file">
+                                                <input name="file" id="bookfile" type="file" class="custom-file-input">
+                                                <label id="bookfilepre" class="custom-file-label">选择文件</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </form>
+
+
+                            <div class="card-footer text-right">
+                                <button id="button_com" class="btn btn-success mr-5 ">上传</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    欢迎来到兼职信息平台，希望您能够在这里找到想要的！
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-auto ml-lg-auto">
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                    Copyright © 2019
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<script>
+
+    var role;
+
+    $(document).ready(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/manage/user/get_list.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+
+        });
+
+    });
+
+
+    //注销
+    $('#logout_option').click(function () {
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/user/logout.do",
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0) {
+                    alert('注销成功');
+                    $(location).attr('href', './index.html');
+
+                } else {
+                    $(location).attr('href', './login.html');
+
+                }
+            },
+            error: function () {
+                console.log("网络错误");
+            }
+
+        });
+    });
+
+
+    $('#button_com').click(function () {
+
+
+        var form = new FormData($('#bookform')[0]);
+
+
+        $.ajax({
+
+            type: "POST",
+
+            // TODO 修改链接
+            url: "http://localhost:8080/manage/user/insert_book.do",
+
+
+
+            data: form,
+
+            contentType: false, // 不设置内容类型
+            processData: false, // 不处理数据
+
+
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            crossDomain: true,
+
+            dataType: "json",
+
+            success: function (data) {
+                if (data.status == 0){
+                    alert(data.msg);
+                }
+            },
+            error: function () {
+
+            }
+
+        });
+
+    })
+</script>
+
+</body>
+</html>

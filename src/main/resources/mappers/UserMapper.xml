@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.teach.pojo.User">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="birthday" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="education" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="school" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="major" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="course" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="idcard" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="province" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qq" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="wechat" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="role" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, image, name, sex, birthday, education, school, major, course, idcard, province, 
+    phone, password, qq, wechat, address, role
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teach_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teach_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.teach.pojo.User">
+    insert into teach_user (id, image, name, 
+      sex, birthday, education, 
+      school, major, course, 
+      idcard, province, phone, 
+      password, qq, wechat, 
+      address, role)
+    values (#{id,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{school,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{course,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.teach.pojo.User">
+    insert into teach_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="course != null">
+        course,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+    <insert id="insertFile" parameterType="com.teach.pojo.File">
+      insert into teach_file (filepath, sid, tid, name, type) values (
+      #{filepath},#{sid},#{tid},#{name},#{type}
+      )
+    </insert>
+  <insert id="insertEval" parameterType="com.teach.pojo.Eval">
+    insert into teach_eval (userid, targetid, role, content) values (
+    #{userid},#{targetid},#{role},#{content}
+    );
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.teach.pojo.User">
+    update teach_user
+    <set>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null">
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.teach.pojo.User">
+    update teach_user
+    set image = #{image,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      course = #{course,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      role = #{role,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="checkUsername" resultType="int" parameterType="string">
+    select count(1) from teach_user
+    where phone=#{phone}
+  </select>
+
+  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List" />
+    from teach_user
+    where phone = #{phone}
+    and password = #{password}
+  </select>
+
+  <select id="getList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_user
+    order by id asc
+  </select>
+
+  <select id="getStudentList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_user
+    where role = 0
+  </select>
+
+  <select id="getTeacherList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teach_user
+    where role = 1
+  </select>
+
+  <select id="checkPassword" resultType="int" parameterType="map">
+    SELECT
+    count(1)
+    from teach_user
+    where password = #{password}
+    and id = #{userId}
+  </select>
+
+  <select id="selectUserByPhone" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List" />
+    from teach_user
+    where phone = #{phone};
+  </select>
+  <select id="selectFileBystId" resultType="com.teach.pojo.File" parameterType="map">
+    select
+    id,tid,sid,filepath,name,type
+    from teach_file
+    where sid = #{id} and tid = #{tid}
+  </select>
+
+  <select id="selectEval" resultType="com.teach.pojo.Eval" parameterType="map">
+    select
+    id,userid,targetid,role,content
+    from teach_eval
+    where userid = #{tid} and targetid = #{id}
+  </select>
+</mapper>
